@@ -52,8 +52,9 @@ Email Validation Regex
 
 - helmet
 - cors
-- xss-clean
-- express-rate-limit
+- express-rate-limit (v6+)
+
+Note: This project has been updated to use Express 5 and Mongoose 7. `xss-clean` was removed — prefer using validation/encoding libraries or a CSP in production.
 
 Swagger UI
 
