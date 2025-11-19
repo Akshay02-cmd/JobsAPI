@@ -1,7 +1,7 @@
 const Job = require("../models/Job");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, NotFoundError } = require("../errors");
-const notFound = require("../middleware/not-found");
+
 
 const getalljobs = async (req, res) => {
   const jobs = await Job.find({ CreatedBy: req.user.userID }).sort("createdAt");
@@ -57,7 +57,7 @@ const deletejob = async (req, res) => {
   if (!job) {
     throw new NotFoundError(` job not found on this ID: ${jobId}`);
   }
-  res.status(StatusCodes.OK).json({ job });
+  res.status(StatusCodes.OK).send();
 };
 
 module.exports = {
