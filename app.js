@@ -41,7 +41,7 @@ app.use(cors());
 // app.use(mongoSanitize()); --- IGNORE ---
 
 app.get("/", (req, res) => {
-  res.send('<b>welcome to jobs api</b><br><h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
+  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
 });
 //swagger route
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
