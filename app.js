@@ -4,6 +4,7 @@ require("dotenv").config();
 const helmet = require("helmet");
 const cors = require("cors");
 const rateLimiter = require("express-rate-limit");
+const mongosanitize = require("express-mongo-sanitize");
 
 const express = require("express");
 const app = express();
@@ -32,6 +33,8 @@ app.use(
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
+app.use(mongosanitize());
+//app.use(xssclean());
 
 // routes
 app.use("/api/v1/auth", authrouter);
