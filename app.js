@@ -40,8 +40,11 @@ app.use(cors());
 // app.use(xss()); --- IGNORE ---
 // app.use(mongoSanitize()); --- IGNORE ---
 
+app.get("/", (req, res) => {
+  res.send('<b>welcome to jobs api</b><br><h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
+});
 //swagger route
-app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 // routes
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/jobs", authenticateUser, jobrouter);
